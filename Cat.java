@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 class Cat extends Mammal implements PlayfulPet{
     public static final String SPECIES = "cat";
     public static final double BODY_TEMPERATURE = 37;
@@ -32,22 +34,30 @@ class Cat extends Mammal implements PlayfulPet{
     }
 
     public boolean likesActivity(String activity){
-        for(String likedActivity : LIKED_ACTIVITIES){
-            if(likedActivity.equals(activity)){
-                return true;
-            }
-        }
-        return false;
+        return Arrays.asList(LIKED_ACTIVITIES).contains(activity);
     }
 
     public boolean dislikesActivity(String activity){
-        for(String dislikedActivity : DISLIKED_ACTIVITIES){
-            if(dislikedActivity.equals(activity)){
-                return true;
-            }
-        }
-        return false;
+        return Arrays.asList(DISLIKED_ACTIVITIES).contains(activity);
     }
 
-
+    public String doActivity(String activity){
+        if (activity == "eat"){
+            super.eat();
+            return "This cat enjoyed eating";
+        }
+        else if (activity == "nap"){
+            super.sleep();
+            return "This cat took a good nap";
+        }
+        else if (this.likesActivity(activity)){
+            return "This cat enjoyed " + activity;
+        }
+        else if (this.dislikesActivity(activity)){
+            return "This cat did not enjoy " + activity;
+        }
+        else{
+            return "This cat does not know how to " + activity;
+        }
+    }
 }
