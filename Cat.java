@@ -60,4 +60,8 @@ class Cat extends Mammal implements PlayfulPet{
             return "This cat does not know how to " + activity;
         }
     }
+
+    public String getPetName(){
+        return "This cat's name is " + this.species;
+    }
 }
