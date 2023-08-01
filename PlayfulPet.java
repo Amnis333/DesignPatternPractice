@@ -6,4 +6,5 @@ interface PlayfulPet{
     public abstract boolean likesActivity(String activity); // ペットが特定の活動をするのが好きかどうかを返します。
     public abstract boolean dislikesActivity(String activity); // ペットが特定の活動を嫌がるかどうかを返します。
     public abstract String doActivity(String activity); // あるアクティビティが発生したときに何が起こるかを記述した文字列を返します。
+    public abstract String getPetName(); // ペットの名前を返します。
 }
